@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		html{height:100%}
+		body{height:100%;margin:0px;padding:0px}
+		#mainapp{
+			height: 100%;
+		}
+		#container{height:100%}
+	</style>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=p5BqqZv50p38dtKCUk0tHKA44IhC3d2Q">
+	</script>
+</head>
+<body>
+<div id="mainapp">
+	<div id="container"></div>
+</div>
+<script type="text/javascript" src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
+
+<script>
+	const DATA = {
+		"result": "success",
+		"data": {
+			"cnt": 5,
+			"data": [
+				{
+					"ID": "23",
+					"IMAGE_ID": "/upload/socialnetwork/ac6/Desert.jpg",
+					"NAME": "测试1",
+					"DESCRIPTION": "测试1测试1",
+					"NUMBER_OF_MEMBERS": "1",
+					"OWNER_NAME": "d",
+					"OWNER_ID": "1",
+					"DATE_CREATE_X1": "2017-11-28 11:32:06",
+					"DATE_CREATE": "11/28/2017 11:32:06 am",
+					"UF_BUILDING_TYPE": null,
+					"UF_PROJ_TYPE": null,
+					"UF_PROJ_PROVINCE": "江苏省",
+					"UF_PROJ_CITY": "南京市",
+					"UF_REQUIRED_DISC": null,
+					"UF_PLAN_AREA": null,
+					"UF_CONSTRUCT_UNIT": null,
+					"UF_CONSTRUCT_ADDRESS": null,
+					"UF_CONSTRUCT_FLOOR": null,
+					"UF_DESIGN_DATE": null,
+					"UF_COMPLETE_DATE": null,
+					"UF_PROJ_STAGE": null
+				},
+				{
+					"ID": "22",
+					"IMAGE_ID": "/upload/socialnetwork/b48/Chrysanthemum.jpg",
+					"NAME": "测试",
+					"DESCRIPTION": "建筑设计",
+					"NUMBER_OF_MEMBERS": "1",
+					"OWNER_NAME": "d",
+					"OWNER_ID": "1",
+					"DATE_CREATE_X1": "2017-11-28 11:28:36",
+					"DATE_CREATE": "11/28/2017 11:28:36 am",
+					"UF_BUILDING_TYPE": null,
+					"UF_PROJ_TYPE": null,
+					"UF_PROJ_PROVINCE": "上海市",
+					"UF_PROJ_CITY": "长宁区",
+					"UF_REQUIRED_DISC": null,
+					"UF_PLAN_AREA": null,
+					"UF_CONSTRUCT_UNIT": null,
+					"UF_CONSTRUCT_ADDRESS": null,
+					"UF_CONSTRUCT_FLOOR": null,
+					"UF_DESIGN_DATE": null,
+					"UF_COMPLETE_DATE": null,
+					"UF_PROJ_STAGE": null
+				},
+				{
+					"ID": "13",
+					"IMAGE_ID": null,
+					"NAME": "美国枪击事件",
+					"DESCRIPTION": "",
+					"NUMBER_OF_MEMBERS": "1",
+					"OWNER_NAME": "d",
+					"OWNER_ID": "1",
+					"DATE_CREATE_X1": "2017-11-02 13:33:05",
+					"DATE_CREATE": "11/02/2017 01:33:05 pm",
+					"UF_BUILDING_TYPE": null,
+					"UF_PROJ_TYPE": null,
+					"UF_PROJ_PROVINCE": "陕西省",
+					"UF_PROJ_CITY": null,
+					"UF_REQUIRED_DISC": null,
+					"UF_PLAN_AREA": null,
+					"UF_CONSTRUCT_UNIT": null,
+					"UF_CONSTRUCT_ADDRESS": null,
+					"UF_CONSTRUCT_FLOOR": null,
+					"UF_DESIGN_DATE": null,
+					"UF_COMPLETE_DATE": null,
+					"UF_PROJ_STAGE": null
+				},
+				{
+					"ID": "8",
+					"IMAGE_ID": "/upload/socialnetwork/60f/7.jpg",
+					"NAME": "\"New Corporate Identity\" project",
+					"DESCRIPTION": "Development and application of the new corporate identity",
+					"NUMBER_OF_MEMBERS": "1",
+					"OWNER_NAME": "d",
+					"OWNER_ID": "1",
+					"DATE_CREATE_X1": "2017-10-24 11:07:18",
+					"DATE_CREATE": "10/24/2017 11:07:18 am",
+					"UF_BUILDING_TYPE": null,
+					"UF_PROJ_TYPE": null,
+					"UF_PROJ_PROVINCE": "上海市",
+					"UF_PROJ_CITY": "静安区",
+					"UF_REQUIRED_DISC": null,
+					"UF_PLAN_AREA": null,
+					"UF_CONSTRUCT_UNIT": null,
+					"UF_CONSTRUCT_ADDRESS": null,
+					"UF_CONSTRUCT_FLOOR": null,
+					"UF_DESIGN_DATE": null,
+					"UF_COMPLETE_DATE": null,
+					"UF_PROJ_STAGE": null
+				},
+				{
+					"ID": "1",
+					"IMAGE_ID": "/upload/socialnetwork/7cc/0.jpg",
+					"NAME": "New company web site development",
+					"DESCRIPTION": "Company web site development workgroup",
+					"NUMBER_OF_MEMBERS": "1",
+					"OWNER_NAME": "d",
+					"OWNER_ID": "1",
+					"DATE_CREATE_X1": "2017-10-24 11:07:17",
+					"DATE_CREATE": "10/24/2017 11:07:17 am",
+					"UF_BUILDING_TYPE": null,
+					"UF_PROJ_TYPE": null,
+					"UF_PROJ_PROVINCE": "上海市",
+					"UF_PROJ_CITY": "浦东新区",
+					"UF_REQUIRED_DISC": null,
+					"UF_PLAN_AREA": null,
+					"UF_CONSTRUCT_UNIT": null,
+					"UF_CONSTRUCT_ADDRESS": null,
+					"UF_CONSTRUCT_FLOOR": null,
+					"UF_DESIGN_DATE": null,
+					"UF_COMPLETE_DATE": null,
+					"UF_PROJ_STAGE": null
+				},
+				{
+					"ID": "1",
+					"IMAGE_ID": "/upload/socialnetwork/7cc/0.jpg",
+					"NAME": "New company web site development",
+					"DESCRIPTION": "Company web site development workgroup",
+					"NUMBER_OF_MEMBERS": "1",
+					"OWNER_NAME": "d",
+					"OWNER_ID": "1",
+					"DATE_CREATE_X1": "2017-10-24 11:07:17",
+					"DATE_CREATE": "10/24/2017 11:07:17 am",
+					"UF_BUILDING_TYPE": null,
+					"UF_PROJ_TYPE": null,
+					"UF_PROJ_PROVINCE": "上海市",
+					"UF_PROJ_CITY": "浦东新区",
+					"UF_REQUIRED_DISC": null,
+					"UF_PLAN_AREA": null,
+					"UF_CONSTRUCT_UNIT": null,
+					"UF_CONSTRUCT_ADDRESS": null,
+					"UF_CONSTRUCT_FLOOR": null,
+					"UF_DESIGN_DATE": null,
+					"UF_COMPLETE_DATE": null,
+					"UF_PROJ_STAGE": null
+				}
+			]
+		}
+	};
+
+	const SHANGHAI = "上海市";
+	const MIN_ZOOM = 5;
+	const MIDDLE_ZOOM = 13;
+	const SHAN_XI_X = 108.9606010162;
+	const SHAN_XI_Y = 34.2711427681;
+	const MAX_ZOOM = 14;
+	var province = [];
+	var shPosition = [];
+	var xyArr = [];
+	var map;
+	var localSearch;
+
+	/**
+	 * 查询出所有的省
+	 */
+	function selectProvince() {
+		DATA.data.data.forEach(function (provinceItem) {
+			// 统计省数据
+			doProvince(provinceItem.UF_PROJ_PROVINCE);
+
+			//上海区统计
+			if (provinceItem.UF_PROJ_PROVINCE === SHANGHAI) {
+				doPosition(provinceItem.UF_PROJ_CITY);
+			}
+		});
+	}
+
+	selectProvince();
+
+	/**
+	 * 判断省份数组中是否包含某个省
+	 */
+	function isContainsProvince(provinceName) {
+		for (let i = 0; i < province.length; i++) {
+			if (province[i].name === provinceName) {
+				return i;
+			}
+		}
+		return -1;
+	}
+
+	/**
+	 * 判断数组中是否包含某个区
+	 */
+	function isContainsPosition(positionName) {
+		for (let i = 0; i < shPosition.length; i++) {
+			if (shPosition[i].name === positionName) {
+				return i;
+			}
+		}
+		return -1;
+	}
+
+	/**
+	 * 统计区的数据
+	 *
+	 * @param positionName
+	 */
+	function doPosition(positionName) {
+		let index = isContainsPosition(positionName);
+		if (index > -1) {
+			let existPosition = {
+				label: "CITY",
+				name:positionName,
+				num:shPosition[index].num + 1
+			};
+			shPosition.splice(index, 1);
+			shPosition.push(existPosition);
+		} else {
+			let newPosition = {
+				label: "CITY",
+				name: positionName,
+				num: 1
+			};
+			shPosition.push(newPosition);
+		}
+	}
+
+	/**
+	 * 统计省数据
+	 *
+	 * @param provinceName
+	 */
+	function doProvince(provinceName) {
+		let index = isContainsProvince(provinceName);
+		if(index > -1) {
+			let existProvince = {
+				label: "PROVINCE",
+				name:provinceName,
+				num:province[index].num + 1
+			};
+			province.splice(index, 1);
+			province.push(existProvince);
+		} else {
+			let newProvince = {
+				label: "PROVINCE",
+				name: provinceName,
+				num: 1
+			};
+			province.push(newProvince);
+		}
+	}
+
+	var app = new Vue({
+		el:'#mainapp',
+		data:{
+			startZoom: 5,
+			zoomFlag: false,
+		},
+		methods:{
+			initMap(){
+				map = new BMap.Map("container", {minZoom:MIN_ZOOM, maxZoom:MAX_ZOOM});
+				map.enableScrollWheelZoom(true);
+				map.addControl(new BMap.NavigationControl());
+				map.addControl(new BMap.ScaleControl());
+				map.addControl(new BMap.OverviewMapControl());
+				map.addControl(new BMap.MapTypeControl());
+
+				let point = new BMap.Point(SHAN_XI_X,SHAN_XI_Y); //必须为经纬度
+				map.centerAndZoom(point, MIN_ZOOM);
+				localSearch = new BMap.LocalSearch(map);
+
+				let _this = this;
+				map.addEventListener("zoomstart", function () {
+					_this.startZoom = map.getZoom();
+				});
+
+				map.addEventListener("zoomend", function () {
+					let zoom = map.getZoom();
+					if (_this.zoomFlag && _this.startZoom > zoom && zoom <= 11) {
+						map.clearOverlays();
+						map.setZoom(MIN_ZOOM);
+						_this.initMarker();
+						_this.zoomFlag = false;
+					}
+				});
+			},
+
+			initMarker() {
+				let _this = this;
+				province.forEach(function(provinceItem){
+					_this.searchXYAndDraw(provinceItem.name, province);
+				});
+			},
+
+			searchXYAndDraw(name, arr) {
+				let _this = this;
+				localSearch.setSearchCompleteCallback(function (searchResult) {
+					let poi = searchResult.getPoi(0);
+					let item;
+					arr.forEach(function (val) {
+						if (val.name === searchResult.keyword) {
+							item = val;
+						}
+					});
+					_this.drawMarker(poi.point.lng, poi.point.lat, item)
+				});
+				localSearch.search(name);
+			},
+
+			drawMarker(x, y, item) {
+				let point = new BMap.Point(x, y);
+				let icon = new BMap.Icon("./img/blue.png", new BMap.Size(65,65));
+				let marker = new BMap.Marker(point, {
+					icon: icon,
+				});
+
+				let content = item.name + "</br>" + "&nbsp;&nbsp;&nbsp;" + item.num + "个";
+				let label = new BMap.Label(content, {
+					position: point,
+					offset: new BMap.Size(-22, -18),
+				});
+
+				label.setStyle({
+					color : "#FFF",
+					backgroundColor:'transparent',
+					borderColor:'transparent',
+					fontSize : "10px",
+					height : "20px",
+					lineHeight : "20px",
+					fontFamily:"微软雅黑"
+				});
+
+				map.addOverlay(label);
+				map.addOverlay(marker);
+
+				/**
+				 * 鼠标移上事件
+				 * @type {app}
+				 * @private
+				 */
+				let _this = this;
+				marker.addEventListener("mouseover", function () {
+					marker.setTop(true);
+					_this.setIcon("./img/red.png", marker);
+					_this.drawBoundary(item.name);
+				});
+
+				/**
+				 * 鼠标移出事件
+				 */
+				marker.addEventListener("mouseout", function () {
+					marker.setTop(false);
+					_this.setIcon("./img/blue.png", marker);
+					_this.clearShadow("Polygon");
+				});
+
+				/**
+				 * 鼠标点击事件
+				 */
+				marker.addEventListener("click", function () {
+					if (item.name === SHANGHAI) {
+						map.setZoom(MIDDLE_ZOOM);
+						map.clearOverlays();
+						map.setCenter(SHANGHAI);
+						for(let i = 0; i < shPosition.length; i++) {
+							_this.searchXYAndDraw(shPosition[i].name, shPosition)
+						}
+
+						// 标志位改变
+						_this.zoomFlag = true;
+					} else {
+						alert(item.name);
+					}
+				});
+			},
+
+			setIcon(iconUrl, marker) {
+				let icon = new BMap.Icon(iconUrl, new BMap.Size(65,65));
+				marker.setIcon(icon);
+			},
+
+			clearShadow(type) {
+				let layers = map.getOverlays();
+				layers.forEach(function (record) {
+					if (record.toString().indexOf(type) > 0) {
+						map.removeOverlay(record);
+					}
+				})
+			},
+
+			/**
+			 * 画行政区域:先从缓存中找,缓存中没有则从地图中搜索:效率低
+			 *
+			 * @param name
+			 */
+			drawBoundary(name){
+				let index = this.containsXY(name);
+				if (index > -1) {
+					xyArr[index].boundaries.forEach(function (value) {
+						let discover = new BMap.Polygon(value, {
+							strokeWeight: 3,
+							strokeColor: "#ff0000",
+							strokeStyle: "solid",
+							fillColor: ""
+						});
+						map.addOverlay(discover);
+					});
+				} else {
+					let bdary = new BMap.Boundary();
+					bdary.get(name, function(rs){
+						let count = rs.boundaries.length;
+						for(let i = 0; i < count; i++){
+							let discover = new BMap.Polygon(rs.boundaries[i], {
+								strokeWeight: 3,
+								strokeColor: "#ff0000",
+								strokeStyle: "solid",
+								fillColor: ""
+							});
+							map.addOverlay(discover);
+						}
+						xyArr.push({
+							name: name,
+							boundaries: rs.boundaries
+						})
+					});
+				}
+			},
+
+			/**
+			 * 判断行政区域是否加入到缓存数组
+			 */
+			containsXY(name) {
+				for (let i = 0; i < xyArr.length; i++) {
+					if (xyArr[i].name === name ) {
+						return i;
+					}
+				}
+				return -1;
+			},
+
+			/**
+			 * 缓存行政区域坐标,因为太慢
+			 *
+			 * @param arr
+			 */
+			searchBoundary(arr) {
+				let bdary = new BMap.Boundary();
+				arr.forEach(function (value) {
+					bdary.get(value.name, function(rs){
+						xyArr.push({
+							name: value.name,
+							boundaries: rs.boundaries
+						})
+					});
+				});
+			}
+		},
+		mounted:function(){
+			this.initMap();
+			this.searchBoundary(province);
+			this.searchBoundary(shPosition);
+			this.initMarker();
+		}
+	})
+</script>
+</body>
+</html>
